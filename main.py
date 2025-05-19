@@ -76,32 +76,7 @@ major_data = {
 
 st.set_page_config(page_title="수도권 대학 찾기", page_icon="🎓")
 
-# 별빛 배경 효과
-st.markdown("""
-<style>
-body {
-    background: radial-gradient(circle, #fdf6e3, #ffffff);
-    overflow: hidden;
-}
-#stars {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: -1;
-}
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #ffccff;
-    border-radius: 50%;
-    animation: twinkle 2s infinite ease-in-out alternate;
-}
-@keyframes twinkle {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
-}
+
 </style>
 <div id="stars">
 """ + "\n".join([
