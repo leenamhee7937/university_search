@@ -38,38 +38,8 @@ study_sites = [
 
 st.set_page_config(page_title="인터넷 강의 플랫폼 소개", page_icon="📚")
 
-# 별빛 배경 효과
-st.markdown("""
-<style>
-body {
-    background: radial-gradient(circle, #f0f8ff, #ffffff);
-    overflow: hidden;
-}
-#stars {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: -1;
-}
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #ffe4e1;
-    border-radius: 50%;
-    animation: twinkle 2s infinite ease-in-out alternate;
-}
-@keyframes twinkle {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
-}
+
 </style>
-<div id="stars">
-""" + "\n".join([
-    f'<div class="star" style="top: {i*5 % 100}%; left: {i*11 % 100}%; animation-delay: {i*0.2}s;"></div>'
-    for i in range(60)
-]) + "</div>", unsafe_allow_html=True)
 
 # 타이틀
 st.title("✨ 대학 입시 준비를 위한 인터넷 강의 사이트 소개")
