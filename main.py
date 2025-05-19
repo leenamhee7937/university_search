@@ -78,11 +78,6 @@ st.set_page_config(page_title="수도권 대학 찾기", page_icon="🎓")
 
 
 </style>
-<div id="stars">
-""" + "\n".join([
-    f'<div class="star" style="top: {i*3 % 100}%; left: {i*7 % 100}%; animation-delay: {i*0.3}s;"></div>'
-    for i in range(50)
-]) + "</div>", unsafe_allow_html=True)
 
 # 제목
 st.title("✨ 전공별 수도권 대학 탐색기")
