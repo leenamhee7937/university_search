@@ -75,37 +75,6 @@ major_data = {
         "message": "화학공학은 실생활과 산업을 연결하는 응용과학입니다. 화학, 수학, 물리에 대한 기초와 함께 실험과 공정 설계에 흥미를 가진다면 큰 발전이 가능합니다. 깨끗한 환경과 에너지 문제 해결에도 기여할 수 있어요!"
     }
 }
-#====눈송이 효과===========================================================
-st.markdown("""
-<style>
-.snowflake {
-  position: fixed;
-  top: -10px;
-  z-index: 9999;
-  color: #fff;
-  font-size: 1.5em;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-</style>
-
-<script>
-const snowflakes = [];
-for (let i = 0; i < 50; i++) {
-  let snowflake = document.createElement('div');
-  snowflake.className = 'snowflake';
-  snowflake.style.left = Math.random() * 100 + 'vw';
-  snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-  snowflake.innerHTML = '❄️';
-  document.body.appendChild(snowflake);
-  snowflakes.push(snowflake);
-}
-</script>
-""", unsafe_allow_html=True)
 
 # -------------------- Streamlit UI --------------------
 st.set_page_config(page_title="전공별 수도권 대학 탐색기", page_icon="🎓")
