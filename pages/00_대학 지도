@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-# 수도권 주요 대학 정보
+# 수도권 주요 대학 정보안내
 universities = [
     {
         "name": "서울대학교",
