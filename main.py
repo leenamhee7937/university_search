@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 전공별 수도권 대학교, 홈페이지, 진로 정보
+# 전공별 수도권 대학교, 홈페이지, 진로 정보ㅇ
 major_data = {
     "인공지능": {
         "universities": {
