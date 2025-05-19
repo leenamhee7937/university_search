@@ -1,104 +1,176 @@
 import streamlit as st
 
-# 전공별 수도권 대학교, 홈페이지, 진로 정보ㅇ
+# 전공별 데이터 정의
 major_data = {
     "인공지능": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "고려대학교": "https://www.korea.ac.kr",
-            "연세대학교": "https://www.yonsei.ac.kr",
-            "한양대학교": "https://www.hanyang.ac.kr",
-            "성균관대학교": "https://www.skku.edu"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국·수·탐 평균 1.5등급 이내 + 영어 2등급 이내"
+            },
+            "고려대학교": {
+                "url": "https://www.korea.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내 (국, 수, 탐 중)"
+            },
+            "연세대학교": {
+                "url": "https://www.yonsei.ac.kr",
+                "cut": "국·수·영·탐 중 3개 영역 등급 합 6 이내"
+            },
+            "한양대학교": {
+                "url": "https://www.hanyang.ac.kr",
+                "cut": "최저학력 기준 없음"
+            },
+            "성균관대학교": {
+                "url": "https://www.skku.edu",
+                "cut": "2개 영역 등급 합 4 이내 (국, 수, 영, 탐 중)"
+            },
         },
         "career": [
-            "AI 연구원 🤖",
-            "데이터 사이언티스트 📊",
-            "자율주행 개발자 🚗",
-            "AI 스타트업 창업자 💡"
+            "AI 연구원 🤖", "데이터 사이언티스트 📊", "자율주행 개발자 🚗", "AI 스타트업 창업자 💡"
         ]
     },
     "약학": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "중앙대학교": "https://www.cau.ac.kr",
-            "이화여자대학교": "https://www.ewha.ac.kr",
-            "성균관대학교": "https://www.skku.edu",
-            "경희대학교": "https://www.khu.ac.kr"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국수탐 평균 1.5등급 이내 + 영어 2등급 이내"
+            },
+            "중앙대학교": {
+                "url": "https://www.cau.ac.kr",
+                "cut": "국·수·영·탐 중 3개 영역 등급 합 6 이내"
+            },
+            "이화여자대학교": {
+                "url": "https://www.ewha.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내 (국, 수, 탐 중)"
+            },
+            "성균관대학교": {
+                "url": "https://www.skku.edu",
+                "cut": "2개 영역 등급 합 4 이내"
+            },
+            "경희대학교": {
+                "url": "https://www.khu.ac.kr",
+                "cut": "국·수·영·탐 중 2개 영역 등급 합 4 이내"
+            },
         },
         "career": [
-            "약사 💊",
-            "제약회사 연구원 🧪",
-            "병원 약제부 근무 🏥",
-            "의약품 개발자 🔬"
+            "약사 💊", "제약회사 연구원 🧪", "병원 약제부 근무 🏥", "의약품 개발자 🔬"
         ]
     },
     "간호": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "연세대학교": "https://www.yonsei.ac.kr",
-            "이화여자대학교": "https://www.ewha.ac.kr",
-            "가톨릭대학교": "https://www.catholic.ac.kr",
-            "한양대학교": "https://www.hanyang.ac.kr"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국수탐 평균 2등급 이내"
+            },
+            "연세대학교": {
+                "url": "https://www.yonsei.ac.kr",
+                "cut": "3개 영역 등급 합 6 이내"
+            },
+            "이화여자대학교": {
+                "url": "https://www.ewha.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내"
+            },
+            "가톨릭대학교": {
+                "url": "https://www.catholic.ac.kr",
+                "cut": "국·수·영·탐 중 2개 영역 2등급 이내"
+            },
+            "한양대학교": {
+                "url": "https://www.hanyang.ac.kr",
+                "cut": "최저학력 기준 없음"
+            },
         },
         "career": [
-            "임상 간호사 👩‍⚕️",
-            "보건교사 🏫",
-            "공공의료기관 근무 👨‍⚕️",
-            "해외 간호사 ✈️"
+            "임상 간호사 👩‍⚕️", "보건교사 🏫", "공공의료기관 근무 👨‍⚕️", "해외 간호사 ✈️"
         ]
     },
     "의학": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "연세대학교": "https://www.yonsei.ac.kr",
-            "성균관대학교": "https://www.skku.edu",
-            "한양대학교": "https://www.hanyang.ac.kr",
-            "고려대학교": "https://www.korea.ac.kr"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국수탐 평균 1.5등급 이내"
+            },
+            "연세대학교": {
+                "url": "https://www.yonsei.ac.kr",
+                "cut": "국·수·영·탐 중 3개 영역 등급 합 4 이내"
+            },
+            "성균관대학교": {
+                "url": "https://www.skku.edu",
+                "cut": "3개 영역 등급 합 5 이내"
+            },
+            "한양대학교": {
+                "url": "https://www.hanyang.ac.kr",
+                "cut": "최저학력 기준 없음"
+            },
+            "고려대학교": {
+                "url": "https://www.korea.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내"
+            },
         },
         "career": [
-            "의사 👨‍⚕️",
-            "의과학 연구자 🔬",
-            "의료 컨설턴트 📋",
-            "공공보건 전문가 🏥"
+            "의사 👨‍⚕️", "의과학 연구자 🔬", "의료 컨설턴트 📋", "공공보건 전문가 🏥"
         ]
     },
     "컴퓨터": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "고려대학교": "https://www.korea.ac.kr",
-            "연세대학교": "https://www.yonsei.ac.kr",
-            "한양대학교": "https://www.hanyang.ac.kr",
-            "서강대학교": "https://www.sogang.ac.kr"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국수탐 평균 1.5등급 이내"
+            },
+            "고려대학교": {
+                "url": "https://www.korea.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내"
+            },
+            "연세대학교": {
+                "url": "https://www.yonsei.ac.kr",
+                "cut": "3개 영역 등급 합 6 이내"
+            },
+            "한양대학교": {
+                "url": "https://www.hanyang.ac.kr",
+                "cut": "최저학력 기준 없음"
+            },
+            "서강대학교": {
+                "url": "https://www.sogang.ac.kr",
+                "cut": "2개 영역 등급 합 4 이내"
+            },
         },
         "career": [
-            "소프트웨어 개발자 💻",
-            "웹/앱 개발자 📱",
-            "보안 전문가 🔐",
-            "게임 개발자 🎮"
+            "소프트웨어 개발자 💻", "웹/앱 개발자 📱", "보안 전문가 🔐", "게임 개발자 🎮"
         ]
     },
     "화학공학": {
         "universities": {
-            "서울대학교": "https://www.snu.ac.kr",
-            "고려대학교": "https://www.korea.ac.kr",
-            "연세대학교": "https://www.yonsei.ac.kr",
-            "한양대학교": "https://www.hanyang.ac.kr",
-            "중앙대학교": "https://www.cau.ac.kr"
+            "서울대학교": {
+                "url": "https://www.snu.ac.kr",
+                "cut": "국수탐 평균 1.5등급 이내"
+            },
+            "고려대학교": {
+                "url": "https://www.korea.ac.kr",
+                "cut": "3개 영역 등급 합 5 이내"
+            },
+            "연세대학교": {
+                "url": "https://www.yonsei.ac.kr",
+                "cut": "3개 영역 등급 합 6 이내"
+            },
+            "한양대학교": {
+                "url": "https://www.hanyang.ac.kr",
+                "cut": "최저학력 기준 없음"
+            },
+            "중앙대학교": {
+                "url": "https://www.cau.ac.kr",
+                "cut": "2개 영역 등급 합 4 이내"
+            },
         },
         "career": [
-            "화학 엔지니어 ⚗️",
-            "석유화학 기업 연구원 🛢️",
-            "배터리/소재 개발자 🔋",
-            "환경 기술 전문가 🌿"
+            "화학 엔지니어 ⚗️", "석유화학 연구원 🛢️", "배터리 소재 개발자 🔋", "환경 기술 전문가 🌿"
         ]
     }
 }
 
-# ----------------- 스트림릿 구성 -----------------
+# ----------------- Streamlit 구성 -----------------
 
 st.set_page_config(page_title="수도권 대학 찾기", page_icon="🎓")
 
-# 별빛 배경 CSS + JS
+# 별빛 배경
 st.markdown("""
 <style>
 body {
@@ -131,24 +203,23 @@ body {
     for i in range(50)
 ]) + "</div>", unsafe_allow_html=True)
 
-# UI 타이틀
+# UI
 st.title("✨ 수도권 전공별 대학 탐색기")
-st.markdown("전공을 선택하거나 검색하여, 해당 전공이 개설된 대학과 졸업 후 진로를 확인하세요! 💡")
+st.markdown("전공을 선택하면 해당 전공 개설 대학의 홈페이지, 최저학력기준, 진로 정보를 확인할 수 있어요! 🎓")
 
-# 전공 필터 입력
+# 전공 필터
 search_input = st.text_input("🔍 전공 검색:", "")
-
-# 필터링된 전공 리스트 생성
 filtered_majors = [major for major in major_data if search_input.strip() in major]
-
-# 전공 선택
 selected_major = st.selectbox("👇 전공을 선택하세요:", filtered_majors if filtered_majors else list(major_data.keys()))
 
 # 결과 표시
 if selected_major:
     st.subheader(f"🏫 {selected_major} 전공 개설 대학")
-    for uni, link in major_data[selected_major]["universities"].items():
-        st.markdown(f"- [{uni}]({link}) 🌐")
+    for uni, info in major_data[selected_major]["universities"].items():
+        st.markdown(f"""
+- [{uni}]({info['url']})  
+  📚 **교과전형 최저학력기준**: *{info['cut']}*
+""")
 
     st.subheader("🌟 졸업 후 진로 분야")
     for job in major_data[selected_major]["career"]:
