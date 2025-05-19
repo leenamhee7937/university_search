@@ -4,7 +4,7 @@ import streamlit as st
 major_data = {
     "인공지능": {
         "universities": {
-            "서울대학교": {"url": "https://www.snu.ac.kr", "cut": "국·수·탐 평균 1.5등급 이내 + 영어 2등급 이내"},
+            "서울대학교": {"url": "https://www.snu.ac.kr"} : "국·수·탐 평균 1.5등급 이내 + 영어 2등급 이내"
             "고려대학교": {"url": "https://www.korea.ac.kr", "cut": "3개 영역 등급 합 5 이내 (국, 수, 탐 중)"},
             "연세대학교": {"url": "https://www.yonsei.ac.kr", "cut": "국·수·영·탐 중 3개 영역 등급 합 6 이내"},
             "한양대학교": {"url": "https://www.hanyang.ac.kr", "cut": "최저학력 기준 없음"},
@@ -106,8 +106,8 @@ st.title("✨ 수도권 전공별 대학 탐색기")
 st.markdown("전공을 선택하면 개설 대학, 홈페이지, 교과전형 최저학력 기준, 졸업 후 진로 정보를 볼 수 있어요! 🎓")
 
 # 전공 검색 및 선택
-search_input = st.text_input("🔍 전공 검색:", "")
-filtered_majors = [major for major in major_data if search_input.strip() in major]
+#search_input = st.text_input("🔍 전공 검색:", "")
+#filtered_majors = [major for major in major_data if search_input.strip() in major]
 selected_major = st.selectbox("👇 전공을 선택하세요:", filtered_majors if filtered_majors else list(major_data.keys()))
 
 # 결과 출력
