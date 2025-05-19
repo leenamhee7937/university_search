@@ -8,35 +8,34 @@ universities = [
         "lat": 37.4602,
         "lon": 126.9527,
         "desc": "대한민국 최고의 종합대학, 관악산 자락에 위치한 국립대학입니다.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/SNU_Main_Gate.jpg"
+
     },
     {
         "name": "연세대학교",
         "lat": 37.5658,
         "lon": 126.9386,
         "desc": "신촌 캠퍼스를 중심으로 국내 최상위권의 사립 명문 대학입니다.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/Yonsei_University_Main_Gate.jpg"
     },
     {
         "name": "고려대학교",
         "lat": 37.5915,
         "lon": 127.0364,
         "desc": "성북구 안암동에 위치한 전통과 역사를 지닌 사립 명문 대학입니다.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Korea_University_Main_Building.jpg"
+
     },
     {
         "name": "한양대학교",
         "lat": 37.5575,
         "lon": 127.0459,
         "desc": "서울 동쪽에 위치한 공학계열 강세의 실용 중심 대학입니다.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Hanyang_University_Main_Gate.jpg"
+
     },
     {
         "name": "성균관대학교",
         "lat": 37.5874,
         "lon": 126.9936,
         "desc": "조선시대 성균관에서 유래한 전통 있는 이공계 중심 명문 대학입니다.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/SKKU_Entrance.jpg"
+
     },
 ]
 
@@ -60,9 +59,8 @@ st.subheader(f"📍 {selected_univ['name']} 위치")
 map_df = pd.DataFrame([[selected_univ["lat"], selected_univ["lon"]]], columns=["lat", "lon"])
 st.map(map_df, zoom=15)
 
-# 이미지와 설명 출력
-st.subheader("🏞️ 캠퍼스 이미지")
-st.image(selected_univ["image"], caption=f"{selected_univ['name']} 캠퍼스", use_column_width=True)
+# 설명 출력
+
 
 st.subheader("📝 대학 소개")
 st.markdown(selected_univ["desc"])
