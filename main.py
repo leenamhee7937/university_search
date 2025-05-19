@@ -79,7 +79,7 @@ major_data = {
 # -------------------- Streamlit UI --------------------
 st.set_page_config(page_title="전공별 수도권 대학 탐색기", page_icon="🎓")
 
-st.title("✨ 전공별 수도권 대학 탐색기 ✨")
+st.title("🎓 전공별 수도권 대학 탐색기🎓 ")
 st.markdown("전공을 선택하면 개설 대학, 홈페이지, 교과전형 기준, 진로 및 상담 멘트를 볼 수 있어요! 🎓")
 st.markdown("""
 <div style='text-align: center;'>
@@ -89,7 +89,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 # 전공 선택
-selected_major = st.selectbox("👇 전공을 선택하세요:", list(major_data.keys()))
+selected_major = st.selectbox("✨ 전공을 선택하세요:", list(major_data.keys()))
 selected_theme = major_data[selected_major]["theme_color"]
 
 # 배경색 스타일 적용
@@ -115,7 +115,7 @@ st.subheader("🌟 졸업 후 진로 분야")
 for job in major_data[selected_major]["career"]:
     st.markdown(f"- {job}")
 
-st.subheader("🎯 진로 상담 ")
+st.subheader("💡 진로 상담 ")
 st.markdown(f"🗨️ *{major_data[selected_major]['message']}*")
 
 st.success(f"'{selected_major}' 전공에 도전하는 당신을 응원합니다! 💖")
