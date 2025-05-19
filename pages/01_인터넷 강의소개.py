@@ -39,7 +39,7 @@ study_sites = [
 st.set_page_config(page_title="인터넷 강의 플랫폼 소개", page_icon="📚")
 
 
-</style>
+
 
 # 타이틀
 st.title("✨ 대학 입시 준비를 위한 인터넷 강의 사이트 소개")
