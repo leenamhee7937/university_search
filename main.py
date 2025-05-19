@@ -111,4 +111,24 @@ body {
 st.title("✨ 수도권 전공별 대학 탐색기")
 st.markdown("전공을 선택하면 개설 대학, 홈페이지, 교과전형 기준, 진로 및 상담 멘트를 볼 수 있어요! 🎓")
 
-search_input =_
+search_input = st.text_input("🔍 전공 검색:", "")
+filtered_majors = [m for m in major_data if search_input.strip() in m]
+selected_major = st.selectbox("👇 전공을 선택하세요:", filtered_majors if filtered_majors else list(major_data.keys()))
+
+# 결과 출력
+if selected_major:
+    st.subheader(f"🏫 {selected_major} 전공 개설 대학")
+    for uni, info in major_data[selected_major]["universities"].items():
+        with st.container():
+            st.markdown(f"### [{uni}]({info['url']})")
+            st.markdown(f"📚 **교과전형 최저학력기준**: {info['cut']}")
+            st.markdown("---")
+
+    st.subheader("🌟 졸업 후 진로 분야")
+    for job in major_data[selected_major]["career"]:
+        st.markdown(f"- {job}")
+
+    st.subheader("🎯 진로 상담 멘트")
+    st.markdown(f"🗨️ *{major_data[selected_major]['message']}*")
+
+    st.success(f"'{selected_major}' 전공에 도전하는 당신을 응원합니다! 💖")
