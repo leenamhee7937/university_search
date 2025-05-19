@@ -109,7 +109,7 @@ st.subheader("🌟 졸업 후 진로 분야")
 for job in major_data[selected_major]["career"]:
     st.markdown(f"- {job}")
 
-st.subheader("🎯 진로 상담 멘트")
+st.subheader("🎯 진로 상담 ")
 st.markdown(f"🗨️ *{major_data[selected_major]['message']}*")
 
 st.success(f"'{selected_major}' 전공에 도전하는 당신을 응원합니다! 💖")
