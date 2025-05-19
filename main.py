@@ -83,7 +83,9 @@ st.title("✨ 전공별 수도권 대학 탐색기 ✨")
 st.markdown("전공을 선택하면 개설 대학, 홈페이지, 교과전형 기준, 진로 및 상담 멘트를 볼 수 있어요! 🎓")
 st.markdown("""
 <div style='text-align: center;'>
-    <img src='https://ilovecharacter.com/news/data/20240404/p1065608798041803_801_thum.png' width='200' height='200'>
+    <img src='https://plus.unsplash.com/premium_vector-1720579367266-571fa03d11e5?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' width='200' height='200'>
+    
+    
 </div>
 """, unsafe_allow_html=True)
 # 전공 선택
