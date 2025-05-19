@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-# 수도권 주요 대학 정보
+# 대학 정보
 universities = [
     {
         "name": "서울대학교",
@@ -40,15 +40,29 @@ universities = [
     },
 ]
 
-# Streamlit 구성
-st.set_page_config(page_title="대학 지도 & 소개", page_icon="🎓")
+# Streamlit 설정
+st.set_page_config(page_title="대학 지도 선택기", page_icon="🎓")
 
-st.title("🏫 수도권 주요 대학 지도 & 소개")
-st.markdown("아래에서 대학의 위치와 캠퍼스 모습을 함께 확인해보세요! ✨")
+st.title("🎓 수도권 대학 지도 & 캠퍼스 보기")
+st.markdown("원하는 대학을 선택하면 위치와 캠퍼스 모습을 보여드릴게요!")
+
+# 대학 이름 목록
+univ_names = [u["name"] for u in universities]
+
+# 드롭다운으로 대학 선택
+selected_name = st.selectbox("🏫 대학을 선택하세요:", univ_names)
+
+# 선택된 대학 데이터 가져오기
+selected_univ = next(u for u in universities if u["name"] == selected_name)
 
 # 지도 표시
-map_df = pd.DataFrame(
-    [[u["lat"], u["lon"]] for u in universities],
-    columns=["lat", "lon"]
-)
-st.map(map_df,_
+st.subheader(f"📍 {selected_univ['name']} 위치")
+map_df = pd.DataFrame([[selected_univ["lat"], selected_univ["lon"]]], columns=["lat", "lon"])
+st.map(map_df, zoom=15)
+
+# 이미지와 설명 출력
+st.subheader("🏞️ 캠퍼스 이미지")
+st.image(selected_univ["image"], caption=f"{selected_univ['name']} 캠퍼스", use_column_width=True)
+
+st.subheader("📝 대학 소개")
+st.markdown(selected_univ["desc"])
